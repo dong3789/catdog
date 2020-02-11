@@ -1,0 +1,55 @@
+@charset "UTF-8";
+* {margin: 0; padding: 0; font-family: 'Noto Sans KR', sans-serif;}
+html, body {width: 100%;height: 100%}
+table{border-collapse: collapse;}
+img,fieldset{border: none;}
+ol,ul{list-style: none;}
+caption,th{text-align: left;}
+h1,h2,h3,h4,h5,h6{font-weight: normal;font-size: 100%;}
+q:after,q:before{content: "";}
+abbr,acronym{border:none;} /* 축약어 */
+img,input,select{vertical-align: middle;}
+hr{display: none;}
+html,body{width: 100%;height: 100%}
+a {text-decoration: none; color: #000;}
+header {position: fixed; width: 200px; height: 100%; background: #ffdfdf; z-index: 30;}
+.blind{position: absolute;left: 0;top: 0;width: 0;height: 0;font-size: 0;line-height: 0;text-indent: -9999px;overflow: hidden;visibility: hidden;}
+.displaynone{display: none;}
+input[type="submit"] {min-width: 100px; height: 30px; cursor: pointer; background: #ffdfdf; color: #5d5d5d; font-size: 14px; font-weight: 600; border: none; border-radius: 5px;}
+input[type="submit"]:hover {background: #fb929e; color: #fff;}
+
+
+h1.logo {
+	text-indent: -9999px; overflow: hidden; width: 180px; height: 180px;
+	margin: 10px auto; /* auto는 중앙에 놓음 */ 
+	background: url(../images/logo.png) no-repeat; background-size: contain; /*contain = h1 사이즈에 맞춤*/
+} 
+      
+nav > div.login {display: flex; justify-content:space-around; font-size: 15px;}
+				/*블락요소로 가로 정렬 함*/
+nav > div.login > div {width: 75px; height: 30px;} /* 위 아래 마진, 좌 우 마진*/
+nav > div.login > div > a {display: block; width: 100%; height: 100%; line-height: 30px; text-align: center; border: 1px solid #5d5d5d; border-radius: 5px;}
+nav > div.login > div > a:hover {color: #fb929e; border: none; background: #fff6f6; font-weight: 600}
+
+/* 메뉴바 */
+nav {margin-top: 20px;}
+nav * {color: #5d5d5d;}
+nav > ul {margin-top: 30px; text-align: center;}
+nav > ul > li {width: 100%;}
+nav > ul > li:hover {background: #fff6f6;}
+nav > ul > li span {display:block; width: 100%; height: 100%; line-height: 50px; font-size: 18px; font-weight: 600; border-radius: 10px; cursor: pointer;}
+nav > ul > li span:hover {color: #fb929e;}
+
+nav > ul > li > ul[class^=nav2] {display: none;}
+nav > ul > li > ul[class^=nav2] > li > a {display: block; line-height: 40px; font-size: 16px;}
+nav > ul > li > ul[class^=nav2] > li > a:hover {color: #fb929e; font-weight: 600;}
+
+nav > ul > li:hover > ul[class^=nav2] {display: block;}
+
+/* sns */
+nav > dl {position:absolute; bottom:50px; width:100%; height:50px; display:flex; justify-content:space-around;}
+nav > dl > dd {width:50px; text-align:center;}
+nav > dl > dd > a {display: block; width: 100%; height:100%; font-size:20px; line-height:50px; transition:all 0.2s ease 0s;}
+nav > dl > dd > a:hover {font-size:25px;}
+
+footer {position: fixed; bottom: 10px;}
