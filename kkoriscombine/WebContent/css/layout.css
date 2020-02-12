@@ -1,37 +1,90 @@
 @charset "UTF-8";
 * {margin: 0; padding: 0; font-family: 'Noto Sans KR', sans-serif;}
-html, body {width: 100%;height: 100%}
+*, *:before, *:after {box-sizing: border-box;}
+html, body {width: 100%; height: 100%;}
 table{border-collapse: collapse;}
 img,fieldset{border: none;}
 ol,ul{list-style: none;}
-caption,th{text-align: left;}
-h1,h2,h3,h4,h5,h6{font-weight: normal;font-size: 100%;}
+h1,h2,h3,h4,h5,h6{font-weight: normal; font-size: 100%;}
 q:after,q:before{content: "";}
 abbr,acronym{border:none;} /* 축약어 */
 img,input,select{vertical-align: middle;}
 hr{display: none;}
-html,body{width: 100%;height: 100%}
 a {text-decoration: none; color: #000;}
 header {position: fixed; width: 200px; height: 100%; background: #ffdfdf; z-index: 30;}
+input{outline: none; background: none;}
 .blind{position: absolute;left: 0;top: 0;width: 0;height: 0;font-size: 0;line-height: 0;text-indent: -9999px;overflow: hidden;visibility: hidden;}
 .displaynone{display: none;}
-input[type="submit"] {min-width: 100px; height: 30px; cursor: pointer; background: #ffdfdf; color: #5d5d5d; font-size: 14px; font-weight: 600; border: none; border-radius: 5px;}
+
+/* input타입 1 (커서유입에 따른 스타일 변화)
+	<div class="input-container"><label class="input-label">아이디</label><input type=""></div>
+*/
+div.input-container {position: relative; display: block; margin: 20px 0;}
+div.input-container > input {width: 100%; height: 40px; line-height: 40px; font-size: 16px; border: none; border-bottom: 1px solid #5d5d5d;}
+div.input-container.focus > input:focus {border-bottom: 1px solid #fb929e;}
+label.input-label {position: absolute; font-size: 16px; transform: translateY(10px); color: #5d5d5d; transition: transform 0.2s ease; z-index: -1;}
+div.input-container.focus > label.input-label {font-size: 12px; transform: translateY(-5px); text-transform: uppercase;}
+div.input-container.focus.on > label.input-label {color: #fb929e;}
+
+/* input타입 2 (박스형)
+	<div class="input-box"><p class="input-label">라벨명</p><input type=""></div>
+*/
+div.input-box {position: relative; display: block; margin: 20px 0;}
+div.input-box > input {width: 100%; padding: 10px; font-size: 16px; border: 1px solid #000;}
+p.input-label {font-size: 16px; color: #000;}
+p.input-info {font-size: 14px; color: #5d5d5d;}
+
+/* input radio
+	<input type="radio" name="test"><label class="radioLabel">라벨명1</label>
+	<input type="radio" name="test"><label class="radioLabel">라벨명2</label>
+*/
+input[type=radio] {display: none;}
+label.radioLabel {display: inline-block; position: relative; padding: 0 30px; cursor: pointer; line-height: 18px;}
+label.radioLabel:before, label.radioLabel:after {position: absolute; border-radius: 50%; content: '';}
+label.radioLabel:before {left: 0; top: 0; width: 18px; height: 18px; border: 2px solid #000;}
+label.radioLabel:after {top: 5px; left: 5px; width: 8px; height: 8px; background: #fb929e; transform: scale(0);}
+input[type="radio"]:checked + label.radioLabel:before {border-color: #fb929e; }
+input[type="radio"]:checked + label.radioLabel:after {transform: scale(1);}
+
+/* input submit 
+	<form>에서 submit되는 버튼을 위한 css (단, 검색 등의 다른 버튼은 blue베이스 스타일로 사용)
+*/
+div.input-submit {display: block; text-align: center; padding: 15px;}
+input[type="submit"] {min-width: 50px; height: 30px; cursor: pointer; background: #ffdfdf; color: #5d5d5d; font-size: 14px; font-weight: 600; border: none; border-radius: 5px;}
 input[type="submit"]:hover {background: #fb929e; color: #fff;}
 
+/* select 옵션  */
+div > select {font-size: 10pt; width: 100px; padding: .7em .5em; font-family: inherit; background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%; -webkit-appearance: none; -moz-appearance: none; appearance: none; outline:none; border:1px solid #5d5d5d;}
 
+/* input 검색 (class="search_input") */
+div > span > input.search_input{width: 250px;  padding: 12px 24px; font-size: 14px; line-height: 18px; color: #575756; background-size: 18px 18px; border-radius: 50px; border: 1px solid #5d5d5d; backface-visibility: hidden; right:20px; outline:none;}
+
+
+/* 영역
+	<div class="container">		// 아래css 외에 특정 스타일을 주어야할 때, 클래스를 추가로 부여하여 사용했음 (ex. class="container login")
+		<div class="contents">
+			구현 영역
+		</div>
+	</div>
+*/
+div.container {position: absolute; top:0; left:0; padding-left:200px; width: 100%; height: 100%; margin: 0 auto; box-sizing: border-box;}
+div.contents {position:relative; margin: 0 auto;}
+div.contents > h2 {font-weight: 700; font-size: 30px; color: #000; padding: 15px 0; text-align: center;}
+
+
+/** 헤더 **/
 h1.logo {
 	text-indent: -9999px; overflow: hidden; width: 180px; height: 180px;
 	margin: 10px auto; /* auto는 중앙에 놓음 */ 
 	background: url(../images/logo.png) no-repeat; background-size: contain; /*contain = h1 사이즈에 맞춤*/
 } 
-      
 nav > div.login {display: flex; justify-content:space-around; font-size: 15px;}
 				/*블락요소로 가로 정렬 함*/
 nav > div.login > div {width: 75px; height: 30px;} /* 위 아래 마진, 좌 우 마진*/
 nav > div.login > div > a {display: block; width: 100%; height: 100%; line-height: 30px; text-align: center; border: 1px solid #5d5d5d; border-radius: 5px;}
 nav > div.login > div > a:hover {color: #fb929e; border: none; background: #fff6f6; font-weight: 600}
 
-/* 메뉴바 */
+/* 메뉴 */
 nav {margin-top: 20px;}
 nav * {color: #5d5d5d;}
 nav > ul {margin-top: 30px; text-align: center;}

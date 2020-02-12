@@ -5,21 +5,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://kit.fontawesome.com/a65bb113b4.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="<%= request.getContextPath() %>/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="<%= request.getContextPath() %>/js/common.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-<script src="https://kit.fontawesome.com/18fd811fa1.js" crossorigin="anonymous"></script> <!-- sns아이콘 -->
-<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/layout.css"/> <!-- 작성할 css를 연결 -->
+<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/layout.css"/>
 </head>
 <body>
 	<header><!-- 헤더 -->
 		<h1 class="logo"></h1>
 		<nav>
       		<div class="login">
-	        	<div><a href="#">로그인</a></div>
-	        	<div><a href="#">회원가입</a></div>
+	        	<div><a href="<%= request.getContextPath() %>/views/user/login.jsp">로그인</a></div>
+	        	<div><a href="<%= request.getContextPath() %>/views/user/join.jsp">회원가입</a></div>
 	      	</div>
 	      	<ul id="navigator">
 	        	<li id="nav-home">
-	         		<a href="#"><span>홈</span></a>
+	         		<a href="<%= request.getContextPath() %>/index.jsp"><span>홈</span></a>
 	         	</li>
 	         	<li id="nav-hospital">
 	         		<span>병원 예약</span>
@@ -38,7 +40,7 @@
          			</ul>
 	         	</li>
 	         	<li id="nav-calendar">
-	         		<a href="/calendar/calendarOrigin.jsp"><span>캘린더</span></a>
+	         		<a href="#"><span>캘린더</span></a>
 	         	</li>
 	         	<li id="nav-mypage">
 	         		<span>마이페이지</span>
@@ -50,12 +52,12 @@
 	         		</ul>
 	         	</li>
 	      	</ul>
-		<dl>
-	    	<dt class="blind">sns</dt>
-	        <dd><a href="#"><i class="fab fa-facebook-f"></i></a></dd>
-	        <dd><a href="#"><i class="fab fa-twitter"></i></a></dd>
-	        <dd><a href="#"><i class="fab fa-youtube"></i></a></dd>
-		</dl>
+			<dl>
+		    	<dt class="blind">sns</dt>
+		        <dd><a href="#"><i class="fab fa-facebook-f"></i></a></dd>
+		        <dd><a href="#"><i class="fab fa-twitter"></i></a></dd>
+		        <dd><a href="#"><i class="fab fa-youtube"></i></a></dd>
+			</dl>
 		</nav>
 	</header>
 	<footer></footer>
